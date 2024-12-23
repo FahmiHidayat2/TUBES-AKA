@@ -61,6 +61,12 @@ pemanggilan rekursi tidak signifikan.
 #### 2. Algoritma Iteratif cenderung memiliki waktu eksekusi yang lebih tinggi karena sifat 
 perulangan yang linear. 
 
+### Kompleksitas Waktu
+#### 1. Pendekatan Iteratif:
+   - Total kompleksitasnya adalah (O(n)), dengan (n) sebagai total elemen dataset.
+
+#### 2. Pendekatan Rekursif:.
+   - Total kompleksitasnya adalah (O(n)), tetapi lebih lambat karena overhead stack rekursi.
 ### Kesimpulan: 
 Penelitian ini menunjukkan bahwa analisis popularitas buku dapat dilakukan secara efektif 
 menggunakan algoritma iteratif dan rekursif. Algoritma iteratif lebih efisien untuk dataset 
