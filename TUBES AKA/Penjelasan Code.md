@@ -1,65 +1,74 @@
 # <h1 align="center">Sistem Penilaian Popularitas Buku Berdasarkan Riwayat Peminjaman Mahasiswa pada Perpustakaan Telkom University Purwokerto.</h1>
-<p align="center"></p>
+<p align="center">
 
-PENJELASAN CODE
+Nama Kelompok : Fahmi Hidayat | Mikhael Setia Budi
+   
+NIM      : 2311110063 | 2311110033
 
-1. Mengimpor Modul yang Diperlukan
-   - import time: Untuk mengukur waktu eksekusi kode.
-   - import matplotlib.pyplot as plt: Untuk membuat grafik visualisasi.
-   - import pandas as pd: Untuk mengolah data dalam format tabel.
+Kelas     : S1SD-04-B </p>
 
-2. **Membaca Data dari File CSV**
-   - file_path = '/content/data_peminjaman_buku_Perpustakaan_.csv'`: Menentukan lokasi file CSV yang berisi data peminjaman buku.
-   - data = pd.read_csv(file_path): Membaca data dari file CSV dan menyimpannya dalam variabel data.
-   - Jika terjadi kesalahan saat membaca file, program akan menampilkan pesan error dan berhenti.
+### A Deskripsi Studi Kasus Permasalahan 
+   Pada era digital saat ini, sistem perpustakaan sering kali memiliki banyak data 
+peminjaman buku yang dapat dimanfaatkan untuk menganalisis preferensi pengguna. Kami 
+mengusulkan studi ini dengan judul "Sistem Penilaian Popularitas Buku Berdasarkan 
+Riwayat Peminjaman Mahasiswa pada Perpustakaan Telkom University Purwokerto" 
+karena judul tersebut unik dan jarang digunakan dalam penelitian serupa. Permasalahan 
+yang kami coba selesaikan adalah bagaimana menentukan buku paling populer berdasarkan 
+riwayat peminjaman secara efektif dengan menggunakan dua pendekatan algoritmik: 
+iteratif dan rekursif. 
 
-3. **Membersihkan Data**
-   - data = data.rename(columns=lambda x: x.strip()): Menghapus spasi di awal dan akhir nama kolom.
-   - Memeriksa apakah kolom 'Nama Buku' ada dalam data. Jika tidak ada, program akan menampilkan pesan error dan berhenti.
-   - data = data.dropna(subset=['Nama Buku']): Menghapus baris yang tidak memiliki nilai pada kolom 'Nama Buku'.
-   - data['Nama Buku'] = data['Nama Buku'].str.strip(): Menghapus spasi yang tidak diperlukan di sekitar nama buku.
+   Iteratif dan rekursif adalah sebuah algoritma yang memiliki ciri yang sama yaitu 
+mengulangi langkah-langkah yang diinginkan. Namun, rekursif agak berbeda dari iterasi. 
+Rekursif adalah sebuah algoritma yang berisi pemanggilan dirinya sendiri sehingga 
+menghasilkan looping. Harus ada batasan di dalam rekursif sehingga looping dapat 
+dibatalkan, jika tidak maka akan terjadi infinity loop dan dapat menyebabkan memori 
+penuh. [1] Dengan melakukan analisis ini, diharapkan dapat memberikan wawasan kepada 
+perpustakaan untuk mengetahui buku mana saja yang disukai oleh mahasiswa. 
 
-4. **Menghitung Jumlah Peminjaman Buku**
-   - loan_counts = data['Nama Buku'].value_counts(): Menghitung berapa kali setiap buku dipinjam.
-   - n_values = loan_counts.values: Mengambil jumlah peminjaman dari loan_counts untuk digunakan dalam perhitungan berikutnya.
+### B Deskripsi Dua Algoritma yang Dipilih untuk Menyelesaikan Permasalahan 
+#### a) Algoritma Iteratif 
+Algoritma iteratif menghitung jumlah peminjaman setiap buku menggunakan 
+metode perulangan secara langsung pada dataset. Pendekatan ini mengakses 
+setiap data buku dan menambahkan jumlah peminjaman ke dalam struktur data 
+yang sesuai, seperti dictionary atau dataframe. Kelebihan utama dari algoritma 
+iteratif adalah efisiensi dan kemudahan implementasi dalam menangani dataset 
+berukuran besar. 
+#### b) Algoritma Rekursif 
+Algoritma rekursif menghitung jumlah peminjaman buku dengan memecah 
+dataset menjadi submasalah lebih kecil dan memprosesnya secara berulang 
+menggunakan fungsi yang memanggil dirinya sendiri. Pendekatan ini memiliki 
+sifat deklaratif yang memungkinkan solusi lebih intuitif untuk masalah tertentu. 
+Namun, algoritma rekursif dapat menghadapi keterbatasan efisiensi dan risiko 
+stack overflow pada dataset yang sangat besar.
 
-5. **Menampilkan Jumlah Peminjaman Buku**
-   - Menampilkan nama buku dan jumlah peminjamannya dalam format:
-     ```
-     Nama Buku: X kali dipinjam
-     ```
+### C Grafik Perbandingan Running Time 
+Berikut adalah grafik perbandingan waktu eksekusi antara algoritma iteratif dan rekursif pada 
+berbagai ukuran dataset:
+![image](https://github.com/user-attachments/assets/b8c02ea1-11e1-4061-a33e-5ccde85bbfbe)
+Grafik menunjukkan bahwa waktu eksekusi algoritma rekursif lebih cepat dibandingkan 
+algoritma iteratif berdasarkan waktu rata-rata pada dataset ini. 
 
-6. **Perbandingan Waktu Eksekusi: Pendekatan Iteratif vs. Rekursif**
-   - **Pendekatan Iteratif**:
-     - Menggunakan metode value_counts() untuk menghitung jumlah peminjaman buku secara langsung.
-     - Mengukur waktu yang dibutuhkan untuk proses ini.
-   - **Pendekatan Rekursif**:
-     - Membuat fungsi calculate_popularity_recursive() yang menghitung jumlah peminjaman buku dengan cara memanggil dirinya sendiri (rekursi).
-     - Mengukur waktu yang dibutuhkan untuk proses ini.
+#### D Analisis Perbandingan Kedua Algoritma 
+Data Ringkasan Eksekusi: 
 
-7. **Menyimpan Hasil Perbandingan**
-   - Menyimpan hasil perbandingan waktu eksekusi dan total peminjaman buku dalam sebuah tabel yang berisi:
-     - n: Jumlah buku yang dipinjam pada iterasi tertentu.
-     - Recursive Time (s): Waktu eksekusi untuk pendekatan rekursif.
-     - Iterative Time (s): Waktu eksekusi untuk pendekatan iteratif.
-     - Total Iterative: Total jumlah peminjaman berdasarkan pendekatan iteratif.
-     - Total Recursive: Total jumlah peminjaman berdasarkan pendekatan rekursif.
+<img width="452" alt="image" src="https://github.com/user-attachments/assets/de37bf64-0b4c-47d9-a7da-e5d295eda035" />
 
-8. **Membuat Grafik Perbandingan Waktu Eksekusi**
-   - Menggunakan matplotlib untuk membuat grafik yang membandingkan waktu eksekusi antara pendekatan iteratif dan rekursif.
-   - Grafik ini membantu visualisasi perbedaan kinerja antara kedua pendekatan.
+Analisis: 
 
-9. **Menampilkan Tabel Hasil Perbandingan**
-   - Menampilkan tabel yang berisi hasil perbandingan waktu eksekusi dan total peminjaman buku dari kedua pendekatan.
+#### 1. Algoritma Rekursif lebih cepat secara rata-rata dibandingkan algoritma iteratif pada 
+dataset ini, yang disebabkan oleh ukuran dataset yang relatif kecil sehingga overhead 
+pemanggilan rekursi tidak signifikan. 
+#### 2. Algoritma Iteratif cenderung memiliki waktu eksekusi yang lebih tinggi karena sifat 
+perulangan yang linear. 
 
-10. **Evaluasi Efisiensi**
-    - Menghitung rata-rata waktu eksekusi untuk kedua pendekatan.
-    - Menentukan pendekatan mana yang lebih efisien berdasarkan waktu rata-rata eksekusi.
-
-**Ringkasan**
-Kode ini membandingkan dua metode (iteratif dan rekursif) dalam menghitung popularitas buku yang dipinjam dari data CSV. Hasilnya mencakup:
-1. Perhitungan jumlah peminjaman buku.
-2. Waktu eksekusi dari kedua metode.
-3. Grafik perbandingan waktu eksekusi.
-4. Tabel yang menunjukkan hasil analisis waktu eksekusi.
-5. Evaluasi efisiensi berdasarkan waktu rata-rata eksekusi. 
+### Kesimpulan: 
+Penelitian ini menunjukkan bahwa analisis popularitas buku dapat dilakukan secara efektif 
+menggunakan algoritma iteratif dan rekursif. Algoritma iteratif lebih efisien untuk dataset 
+besar, sedangkan algoritma rekursif lebih cepat untuk dataset kecil meskipun memiliki 
+keterbatasan pada dataset besar. Hasil analisis waktu eksekusi menunjukkan algoritma rekursif 
+lebih cepat rata-rata pada dataset kecil. Dengan demikian, perpustakaan dapat memanfaatkan 
+algoritma yang sesuai untuk mengidentifikasi tren peminjaman buku, memahami preferensi 
+pengguna, dan mengelola koleksi secara lebih efisien. 
+### Reference : 
+[1] E. Lutfina dan F. L. Ramadhan, “Perbandingan Kinerja Metode Iteratif dan Metode 
+Rekursif dalam Algoritma Binary Search,” Semin. Nas. APTIKOM, hal. 2019, 2019.
