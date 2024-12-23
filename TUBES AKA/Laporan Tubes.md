@@ -1,4 +1,4 @@
-# <h1 align="center">Sistem Penilaian Popularitas Buku Berdasarkan Riwayat Peminjaman Mahasiswa pada Perpustakaan Telkom University Purwokerto.</h1>
+# <h1 align="center">Sistem Penilaian Popularitas Buku Berdasarkan Riwayat Peminjaman Mahasiswa pada Perpustakaan.</h1>
 <p align="center">
 
 Nama Kelompok : Fahmi Hidayat | Mikhael Setia Budi
